@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Posts list</h2>
+
+<!-- Qidiruv formasi -->
+<form method="GET" action="">
+    <input type="text" name="q" placeholder="postni qidirish..." class="form-control" value="{{ request.GET.q }}">
+    <button type="submit" class="btn btn-primary mt-2">Qidirish</button>
+</form>
+
+<!-- Natijalar ro'yxati -->
+<table class="table table-striped mt-4">
+    <thead>
+    <tr>
+        <th>Nomi</th>
+        <th>Manzil</th>
+        <th>Code</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for pst in post %}
+    <tr>
+        <td>{{ pst.nomi }}</td>
+        <td><a href="{{ pst.manzil }}" target="_blank">Ko'rish</a></td>
+        <td>{{ pst.code }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="7">Post topilmadi.</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

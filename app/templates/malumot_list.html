@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-center mb-4">Informations</h2>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Post</th>
+      <th>Offencis</th>
+      <th>Rules</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for m in malumotlar %}
+    <tr>
+      <td>{{ m.post }}</td>
+      <td>{{ m.nomi }}</td>
+      <td>{{ m.qoyida }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

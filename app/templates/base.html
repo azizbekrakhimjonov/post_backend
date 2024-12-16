@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Informations</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: linear-gradient(90deg, rgba(30,64,175,1) 0%, rgba(34,193,195,1) 100%);
+            animation: slideDown 1s ease;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+            margin-right: 20px;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #f8f9fa;
+            background-color: rgba(255, 255, 255, 0.2);
+            animation: hoverEffect 0.5s ease-in-out;
+        }
+
+        /* Table Styling */
+        table {
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            animation: fadeInTable 2s ease;
+        }
+
+        th {
+            background-color: #1e40af;
+            color: grey;
+            padding: 15px;
+            font-size: 1.1rem;
+        }
+
+        td {
+            padding: 12px;
+            font-size: 1rem;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            animation: fadeInAnimation ease 2s;
+            animation-fill-mode: forwards;
+        }
+
+        /* Input focus effect */
+        input:focus {
+            border-color: #1e40af;
+            box-shadow: 0 0 10px rgba(30, 64, 175, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeInAnimation {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(0); }
+        }
+
+        @keyframes hoverEffect {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeInTable {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Post Info</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'universitet_list' %}">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'malumot_list' %}">Informations</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Content -->
+<div class="container mt-4 fade-in">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
