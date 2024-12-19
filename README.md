@@ -1,0 +1,1 @@
+chegara qoidalari 
